@@ -11,16 +11,17 @@ ulst = None
 ulst = subprocess.Popen(args='python -m pip list -o'.split(), text=True, stdout=subprocess.PIPE)
 # one, two = out
 # print(out)
-while k == 1:
+while ulst.returncode == None:
+    ulst.poll()
+    time.sleep(1)
     # try:
     #     print(ulst)
     #     # ulst = ulst.stdout
     # except AttributeError:
         # out = ulst.communicate(10)
-        print(out)
-        print(type(out))
-        time.sleep(1)
-
+        # print(out)
+        # print(type(out))
+        # time.sleep(1)
 
 # while True: 
 #     for i in ["\\", "|", "/", "-"]:
