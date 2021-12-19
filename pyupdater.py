@@ -1,16 +1,22 @@
 import subprocess, time
 from threading import Thread
+from os import name, system
 
 ulst = None
 
-def dotter():
+def clear(): 
+    if name == 'nt': system('cls')
+    else: system('clear')
+
+def progress():
     global ulst
-    k = 0
-    print('Поиск обновлений',end='')
-    while k < 10 and ulst == None:
-        print('.', end='', flush=True)
-        time.sleep(1)
-        k += 1
+    while True:
+        for i in ["\\", "|", "/", "-"]:
+            if ulst == None:
+                clear()
+                print(f'Поиск обновлений {i}', flush=True)
+                time.sleep(0.5)
+            else: return 1
 
 def updater():
     global ulst
@@ -24,7 +30,7 @@ def updater():
     except ValueError: 
         print('Нет обновлений')
 
-th1 = Thread(target=dotter, args=())
+th1 = Thread(target=progress, args=())
 th2 = Thread(target=updater, args=())
 th1.start()
 th2.start()
