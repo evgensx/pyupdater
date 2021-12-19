@@ -1,5 +1,5 @@
 import subprocess, time
-from threading import Thread, excepthook
+from threading import Thread
 from os import name, system
 
 ulst = None
