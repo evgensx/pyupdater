@@ -1,22 +1,27 @@
 import subprocess, time
-# import os module  
 from os import system, name
-
-k = 0
+import sys
+k = 1
 ulst = None
-data = None
 
-def clear():                        # define the clear function
-    if name == 'nt': system('cls')  # for windows
-    else: system('clear')           # for mac and linux
+# def clear():                        # define the clear function
+#     if name == 'nt': system('cls')  # for windows
+#     else: system('clear')           # for mac and linux
 
-ulst = subprocess.Popen(args='python -m pip list -o'.split(), stdout=subprocess.PIPE)
-while True:
-    if ulst == None:
-        print(type(ulst))
+ulst = subprocess.Popen(args='python -m pip list -o'.split(), text=True, stdout=subprocess.PIPE)
+# one, two = out
+# print(out)
+while k == 1:
+    # try:
+    #     print(ulst)
+    #     # ulst = ulst.stdout
+    # except AttributeError:
+        # out = ulst.communicate(10)
+        print(out)
+        print(type(out))
         time.sleep(1)
-    else:
-        break
+
+
 # while True: 
 #     for i in ["\\", "|", "/", "-"]:
 #         if ulst == None:
@@ -27,10 +32,8 @@ while True:
 #             print(ulst, type(data))
 #             break
 
-
 # def updater():
 #     global ulst
-    
 #     ulst = ulst.split()
 #     try:
 #         if ulst == []: raise ValueError('Пустое значение')
@@ -38,11 +41,3 @@ while True:
 #         print('Обновление пакетов завершено')
 #     except ValueError: 
 #         print('Нет обновлений')
-
-
-"""
-Поиск обновлений \
-Поиск обновлений |
-Поиск обновлений /
-Поиск обновлений --
-"""
