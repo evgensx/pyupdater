@@ -6,6 +6,7 @@ def clear():
     else: system('clear')           # mac linux
 
 proc = subprocess.Popen(args='python -m pip list -o'.split(), text=True, stdout=subprocess.PIPE)
+
 while proc.returncode == None:
     for i in ["\\", "|", "/", "-"]:
         proc.poll()
@@ -13,7 +14,9 @@ while proc.returncode == None:
         print(f'Поиск обновлений {i}')
         time.sleep(0.5)
     clear()
+
 outs, _ = proc.communicate()
+
 if outs != '':
     outs = outs.split()
     for i in outs[8::4]: 
