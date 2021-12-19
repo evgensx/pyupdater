@@ -28,3 +28,10 @@ th1 = Thread(target=dotter, args=())
 th2 = Thread(target=updater, args=())
 th1.start()
 th2.start()
+
+"""
+Поиск обновлений \
+Поиск обновлений |
+Поиск обновлений /
+Поиск обновлений --
+"""
